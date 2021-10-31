@@ -183,7 +183,7 @@ input {
   color: var(--main-color);
 }
 
-/* ######### FOOD ITEMS SECTION STYLING ######### */
+/* ######### HOME PAGE FOOD ITEMS SECTION STYLING ######### */
 
 .food-items {
   background-color: var(--main-color);
@@ -357,15 +357,42 @@ input {
   color: var(--primary-color);
 }
 
+
+/* ######### FOOD ITEMS PAGE STYLING ######### */
+
+.food-items-page {
+  color: var(--bg-color);
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("https://source.unsplash.com/1600x900/?restaurants,food") no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 50vh;
+}
+
+.food-items-page h1 {
+  font-size: 60px;
+}
+
+.item-page{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  place-items: center;
+}
+
+
 /* ######### RESPONSIVENESS ######### */
 
 @media screen and (max-width: 1300px) {
-  .food-items .items {
+  .food-items .items, .item-page {
     grid-template-columns: auto auto auto;
   }
 }
 @media screen and (max-width: 975px) {
-  .food-items .items {
+  .food-items .items, .item-page {
     grid-template-columns: auto auto;
   }
 }
@@ -380,7 +407,7 @@ input {
   .about-section .image h2 {
     font-size: 45px;
   }
-  .food-items .items {
+  .food-items .items, .item-page {
     grid-template-columns: auto;
   }
   .footer .container {
