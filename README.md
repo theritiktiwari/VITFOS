@@ -8,7 +8,7 @@
 
 * HTML
 * CSS
-* Tailwind CSS
+* Bootstrap
 
 * JavaScript
 * React JS
