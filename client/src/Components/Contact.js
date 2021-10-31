@@ -1,6 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { app } from '../firebase';
+import { getDatabase, ref, set } from "firebase/database";
 
-const Contact = (props) => {
+const Contact = () => {
+    const database = getDatabase(app);
+
+    const [data, setData] = useState({ name: "", email: "", message: "" });
+    
+    const ID = Math.floor(Math.random() * 9999999999);
+    
+    const submitQuery = (e) => {
+        e.preventDefault();
+        setData({ name: e.name, email: e.email, message: e.message });
+        set(ref(database, 'query/' + ID), {
+            username: data.name,
+            email: data.email,
+            message: data.message
+        }).then(() => {
+            alert("Successfully added query");
+        }).catch((error) => {
+            alert("Error adding query: " + error);
+        });
+        setData({ name: "", email: "", message: "" });
+    }
+
+    const onChange = (e) => {
+        setData({ ...data, [e.target.name]: e.target.value })
+    }
+
     return (
         <>
             <div className="container ps-5" id="contact">
@@ -10,22 +37,22 @@ const Contact = (props) => {
                         <form className="my-4">
                             <div className="mb-3">
                                 <label htmlFor="name" className="form-label">Name</label>
-                                <input type="text" className="form-control" id="name" name="name" />
+                                <input type="text" className="form-control" id="name" name="name" value={data.name} onChange={onChange} required />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="email" className="form-label">Email address</label>
-                                <input type="email" className="form-control" id="email" name="email" aria-describedby="emailHelp" />
+                                <input type="email" className="form-control" id="email" name="email" aria-describedby="emailHelp" value={data.email} onChange={onChange} required />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="message" className="form-label">Enter Your Message</label>
-                                <textarea className="form-control" id="message" name="message" rows="3"></textarea>
+                                <textarea className="form-control" id="message" name="message" rows="3" value={data.message} onChange={onChange} required ></textarea>
                             </div>
-                            <button type="submit" className="btn btn-primary w-100">Submit Your Message</button>
+                            <button type="submit" className="btn btn-primary w-100" onClick={submitQuery}>Submit Your Message</button>
                         </form>
                     </div>
                     <div className="col-12 col-lg-6 rounded-2 image d-flex align-items-center justify-content-center flex-column">
                         <h2 className="text-center mb-5">Contact Details</h2>
-                        <div className="container d-flex flex-column mt-3" style={{width: "300px"}}>
+                        <div className="container d-flex flex-column mt-3" style={{ width: "300px" }}>
                             <div className="box d-flex align-items-center mb-3">
                                 <div className="icon"><i className="fas fa-envelope"></i></div>
                                 <div className="text d-flex flex-column align-items-start">

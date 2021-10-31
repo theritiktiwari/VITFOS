@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import ItemContext from './ItemContext';
-import env from 'react-dotenv';
 
 const ItemState = (props) => {
-    const host = env.API_URL;
+    const host = require("../config.json").API_URL;
 
     const itemsInitial = [];
     const [items, setItems] = useState(itemsInitial);

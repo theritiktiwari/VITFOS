@@ -7,7 +7,7 @@ const Footer = (props) => {
             <div className="container-fluid mt-5 px-5 pt-5 pb-3 footer">
                 <div className="container d-flex justify-content-around align-items-center">
                     <div className="author">
-                        <h2 className="text-dark">Author</h2>
+                        <h2 className="text-dark mb-4">Author</h2>
                         <div className="profile d-flex">
                             <img src="https://avatars.githubusercontent.com/u/59665768?v=4" className="profile-img" alt="author-img" />
                             <div className="profile-body">
@@ -21,7 +21,7 @@ const Footer = (props) => {
                         </div>
                     </div>
                     <div className="links d-flex flex-column">
-                        <h2 className="text-dark">Important Links</h2>
+                        <h2 className="text-dark mb-4">Important Links</h2>
                         <ul className="d-flex flex-column list-unstyled">
                             <li><Link to="/" className="link">Home</Link></li>
                             <li><Link to="/about" className="link">About Us</Link></li>
@@ -30,7 +30,7 @@ const Footer = (props) => {
                         </ul>
                     </div>
                     <div className="social-media">
-                        <h2 className="text-dark">Social Media</h2>
+                        <h2 className="text-dark mb-4">Social Media</h2>
                         <ul className="icon-list list-unstyled d-flex justify-content-between">
                             <li className="icon-item">
                                 <a href="https://instagram.com/theritiktiwari" rel="noreferrer" target="_blank" className="icon-link"><i className="fab fa-instagram"></i></a>

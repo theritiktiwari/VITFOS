@@ -34,7 +34,7 @@ const Home = (props) => {
           {
             // eslint-disable-next-line
             items.map((item, index) => {
-              if (index < 3) return <FoodItem item={item} />;
+              if (index < 3) return <FoodItem item={item} key={item.id} />;
             })
           }
           <Link
@@ -45,7 +45,7 @@ const Home = (props) => {
           </Link>
         </div>
       </div>
-      <Contact title={props.title} />
+      <Contact />
     </>
   );
 };
